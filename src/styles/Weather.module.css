@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.temp {
+    display: flex;
+    align-items: flex-end;
+}
+
+.temp h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.temp p {
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    align-items: flex-end;
+}

@@ -1,0 +1,23 @@
+.element div:nth-child(1) {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .2rem .6rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.element {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .3rem;
+}
+
+.element div:nth-child(2) p{
+    font-size: .9rem;
+    font-weight: 500;
+}

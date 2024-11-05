@@ -1,0 +1,31 @@
+.container h1 {
+    font-weight: 300;
+    font-size: 5rem;
+}
+
+.container {
+    /* flex-wrap: wrap; */
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 60%;
+}
+
+.uvContainer {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .4rem;
+    border: 2px solid var(--black);
+    font-weight: 500;
+    font-size: .85rem;
+    border-radius: 20px;
+    padding: .2rem .2rem .2rem .6rem;
+}
+
+.uvContainer p:nth-child(2) {
+    color: var(--black);
+    padding: .2rem .6rem;
+    border-radius: 20px;
+}

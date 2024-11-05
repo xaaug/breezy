@@ -1,0 +1,23 @@
+.container {
+    width: max-content;
+    margin-bottom: 2rem;
+}
+
+.location {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-bottom: .3rem;
+    border-bottom: 2px solid var(--black);
+    margin: .2rem 0 .3rem;
+}
+
+.time, .date {
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.day {
+    color: var(--gray);
+    margin-right: .2rem;
+}
