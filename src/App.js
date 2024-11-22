@@ -19,7 +19,7 @@ const App = () => {
         const response = await getData();
         // TODO: Add error handling for invalid or no response
         if (!response) {
-          throw new Error("Failed to fetch data");
+          throw new Error("Failed to fetch data", error);
         }
         const dataString = JSON.stringify(response);
         const dataObj = JSON.parse(dataString);
@@ -33,7 +33,7 @@ const App = () => {
     };
 
     fetchData();
-  }, [loading]);
+  }, [loading, error]);
 
   const [time, setTime] = useState(null);
   const [cycle, setCycle] = useState(null);
