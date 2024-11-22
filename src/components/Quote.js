@@ -10,10 +10,10 @@ const Quote = ({ quote, uv, uvColor }) => {
   return (
     <div className={styles.container}>
         <h1>{quote}</h1>
-        <div className={styles.uvContainer}>
+        {uv > 0 && <div className={styles.uvContainer}>
             <p>UV:</p>
             <p style={colorStyle}>{uv}</p>
-        </div>
+        </div>}
     </div>
   );
 };

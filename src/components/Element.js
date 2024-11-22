@@ -9,7 +9,6 @@ const Element = ({ elementIcon, elementType, elementValue, elementBg }) => {
 
   return (
     <div className={styles.element}>
-      {/* TODO: Style the element container color to be a darker shade of the condition colors */}
       <div style={elementBackground}>
        {elementIcon}
         <p>{elementType}</p>

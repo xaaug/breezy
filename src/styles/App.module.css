@@ -1,5 +1,4 @@
 .container {
-  /* TODO: Fix height on scroll */
-  /* min-height: 100vh; */
-    padding: 1rem 1.2rem;
-  }
+  min-height: 100vh;
+  padding: 1rem 1.2rem;
+}

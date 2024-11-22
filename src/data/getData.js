@@ -151,7 +151,6 @@ function getHsl(hex) {
   s = Math.round(s * 100);
   l = Math.round(l * 100) + 25;
 
-  console.log(`hsl(${h}, ${s}%, ${l}%)`); // Outputs: hsl(204, 70%, 53%)
   return `hsl(${h}, ${s}%, ${l}%)`;
 }
 

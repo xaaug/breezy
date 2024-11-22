@@ -328,7 +328,40 @@ const conditions = [
       text: "Foggy Vibes",
       background: "",
     },
+    
   },
+  {
+    "patchy rain nearby": {
+      challenges: [
+        "Carry an umbrella just in case",
+        "Go for a brisk walk between showers",
+        "Take photos of raindrops on leaves",
+        "Read a book by a window",
+        "Listen to the sound of rain",
+        "Sketch the rainy view",
+        "Wear a raincoat and explore the city",
+        "Try capturing raindrop reflections",
+        "Enjoy a warm drink indoors",
+        "Take a short walk when the rain pauses",
+        "Watch a movie with cozy vibes",
+        "Write in a journal about the weather",
+        "Capture rain on camera",
+        "Explore puddles for interesting reflections",
+        "Plan a calming indoor activity",
+        "Take slow-motion videos of raindrops",
+        "Try a new recipe indoors",
+        "Reflect by writing poetry",
+        "Go for a car ride through the rain",
+        "Practice indoor meditation",
+      ],
+        dayColors: ["#87CEEB", "#4682B4"],
+
+        nightColors: ["#1C1C3A", "#2E4B6B"],
+
+      text: "Keep an umbrella handy",
+      background: ""
+    }
+  }   
   // Add more conditions here with the same structure.
 ];
 

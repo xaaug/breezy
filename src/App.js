@@ -23,7 +23,6 @@ const App = () => {
         }
         const dataString = JSON.stringify(response);
         const dataObj = JSON.parse(dataString);
-        console.log(dataObj);
         setData(dataObj);
       } catch (error) {
         setError((prev) => [...prev, `Error: ${error}`]);
@@ -40,17 +39,17 @@ const App = () => {
   const [cycle, setCycle] = useState(null);
   useEffect(() => {
     let intervalId = null;
-    
+
     const displayTime = () => {
       const timeObj = getTime();
-      setCycle(timeObj.time.hours);
-      
+      setCycle(timeObj.time.hours === 0 ? 1 : timeObj.time.hours)
+
       setTime(
         `${
           timeObj.time.hours < 10
-            ? "0" + data.time.time.hours
-            : data.time.time.hours
-          }:${
+            ? "0" + timeObj.time.hours
+            : timeObj.time.hours
+        }:${
           timeObj.time.minutes < 10
             ? "0" + timeObj.time.minutes
             : timeObj.time.minutes
@@ -60,29 +59,13 @@ const App = () => {
 
     if (data) {
       displayTime();
-      intervalId = setInterval(() => displayTime(), 1000);
+      intervalId = setInterval(() => displayTime(), 30000);
     }
-    
-    return () => {
-      window.removeEventListener("load", getTime);
+
+    return () => {;
       clearInterval(intervalId);
     };
-  }, [data, time]);
-  
-  const [bgColor, setBgColor] = useState([]);
-  const [hslColor, setHslColor] = useState(null)
-  useEffect(() => {
-    if (time) {
-      if (cycle <= 6 && cycle >= 18) {
-        setBgColor(data.values.nightColors);
-        setHslColor(getHsl(data.values.nightColors[0]))
-      } else if (cycle >= 6 && cycle <= 18) {
-        setBgColor(data.values.dayColors);
-        setHslColor(getHsl(data.values.dayColors[0]))
-
-      }
-    }
-  }, [data, cycle, time]);
+  }, [data]);
 
   const [date, setDate] = useState([]);
   useEffect(() => {
@@ -131,10 +114,26 @@ const App = () => {
     }
   }, [data]);
 
+  const [bgColor, setBgColor] = useState([]);
+  const [hslColor, setHslColor] = useState(null);
+  useEffect(() => {
+    
+    if (time) {
+      if (cycle <= 6 || cycle >= 18) {
+        console.log(data.values.nightColors);
+        setBgColor(data.values.nightColors);
+        setHslColor(getHsl(data.values.nightColors[0]));
+      } else if (cycle >= 6 && cycle <= 18) {
+        setBgColor(data.values.dayColors);
+        setHslColor(getHsl(data.values.dayColors[0]));
+      }
+    }
+  }, [data, cycle, time]);
+
   const backgroundStyle = {
     background: cycle
       ? `linear-gradient(180deg, ${bgColor.join(",")})`
-      : "black",
+      : "white",
   };
 
   return (
@@ -148,6 +147,7 @@ const App = () => {
             location={data.location.name}
             day={date[0]}
             date={date[1]}
+            dayColor={hslColor}
           />
           <Weather
             temp={data.weather.temp_c}
@@ -156,8 +156,18 @@ const App = () => {
             humidity={data.weather.humidity}
             bgColor={hslColor}
           />
-          <div style={{ margin: "2rem 0 2rem", borderBottom: '1.5px solid ', paddingBottom: '2.5rem'}}>
-            <Quote quote={data.values.text} uvColor={bgColor[0]} uv={data.weather.uv}/>
+          <div
+            style={{
+              margin: "2rem 0 2rem",
+              borderBottom: "1.5px solid ",
+              paddingBottom: "2.5rem",
+            }}
+          >
+            <Quote
+              quote={data.values.text}
+              uvColor={bgColor[0]}
+              uv={data.weather.uv}
+            />
           </div>
         </div>
       )}
